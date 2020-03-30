@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.profileset.ProfileSetViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/profileset_back_btn"
+            android:layout_width="22dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="@{()-> vm.goBack()}"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/profileset_profileset_btn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/back_profile_profileset"
+            android:onClick="@{()->vm.setImage()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileset_back_btn"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <EditText
+            android:id="@+id/profileset_name_et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:gravity="center"
+            android:hint="이름을 입력해주세요."
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:paddingBottom="20dp"
+            android:text="@={vm.profileName}"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileset_profileset_btn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/profileset_start_btn"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@{vm.btnColorSet == false ? @drawable/back_btn_unclicked : @drawable/back_btn_clicked}"
+            android:clickable="@{vm.btnColorSet}"
+            android:fontFamily="@font/nanumsquareregular"
+            android:gravity="center"
+            android:onClick="@{()-> vm.goAlertSet()}"
+            android:text="시작하기"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileset_name_et"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        //텍스트에 하이퍼링크처럼 걸려면 spannableString 이용하기
+
+        <TextView
+            android:id="@+id/profileset_notice_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:lineSpacingExtra="5dp"
+            android:text="시작하기를 눌러, 서비스 이용약관 및 개인정보 처리방침, 위치기반 서비스 이용약관에 동의하고 14세 이상임을 인증합니다."
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileset_start_btn"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="myRoomPagerModel"
+            type="com.android.dutchman.presentation.model.MyRoomPagerModel" />
+
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.myroom.MyRoomViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/item_myroom_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardElevation="10dp"
+            android:shadowColor="@color/colorGrayDark"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/item_myroom_profile_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/back_profile_profileset"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_myroom_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/item_myroom_profile_img"
+                    app:layout_constraintStart_toEndOf="@+id/item_myroom_profile_img"
+                    app:layout_constraintTop_toTopOf="@+id/item_myroom_profile_img"
+                    tools:text="이주용" />
+
+                <ImageView
+                    android:id="@+id/item_myroom_scrab_btn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@{vm.selectedIndex == index ? @drawable/ic_star_unclicked : @drawable/ic_star_clicked}"
+                    app:layout_constraintBottom_toBottomOf="@+id/item_posting_profile_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/item_myroom_profile_img" />
+
+                <TextView
+                    android:id="@+id/item_myroom_context_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:gravity="start"
+                    android:lineSpacingExtra="3dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/item_myroom_img_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_myroom_profile_img"
+                    tools:text="나랑 넷플릭스 4인 할사람 손~" />
+
+                <ImageView
+                    android:id="@+id/item_myroom_img_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/item_myroom_bar1_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_myroom_status_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/nanumsquarelight"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/item_myroom_bar4_view"
+                    app:layout_constraintEnd_toStartOf="@+id/item_myroom_bar2_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_myroom_bar1_view"
+                    tools:text="4명 중 3명 참여중" />
+
+                <TextView
+                    android:id="@+id/item_myroom_enter_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/nanumsquarelight"
+                    android:gravity="center"
+                    android:text="입장하기"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/item_myroom_bar4_view"
+                    app:layout_constraintEnd_toStartOf="@+id/item_myroom_bar3_view"
+                    app:layout_constraintStart_toStartOf="@id/item_myroom_bar2_view"
+                    app:layout_constraintTop_toBottomOf="@+id/item_myroom_bar1_view" />
+
+                <TextView
+                    android:id="@+id/item_myroom_share_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/nanumsquarelight"
+                    android:gravity="center"
+                    android:text="공유하기"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/item_myroom_bar4_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/item_myroom_bar3_view"
+                    app:layout_constraintTop_toBottomOf="@+id/item_myroom_bar1_view" />
+
+                <View
+                    android:id="@+id/item_myroom_bar1_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorGray"
+                    app:layout_constraintBottom_toTopOf="@+id/item_myroom_bar2_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <View
+                    android:id="@+id/item_myroom_bar2_view"
+                    android:layout_width="0.5dp"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorGray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/item_myroom_bar3_view"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <View
+                    android:id="@+id/item_myroom_bar3_view"
+                    android:layout_width="0.5dp"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorGray"
+                    app:layout_constraintBottom_toTopOf="@+id/item_myroom_bar4_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/item_myroom_bar2_view" />
+
+                <View
+                    android:id="@+id/item_myroom_bar4_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorGray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

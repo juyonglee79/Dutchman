@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="isClicked"
+            type="boolean"/>
+
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.posting.PostingViewModel" />
+
+        <import type="com.android.dutchman.presentation.model.PostingModel"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/posting_logo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nanumsquareextrabold"
+            android:text="DUTCHMAN"
+            android:textColor="@color/colorPrimary"
+            android:textScaleX="0.9"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/posting_search_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/back_search_btn"
+            android:src="@drawable/ic_search"
+            android:onClick="@{()-> vm.searchSomething()}"
+            app:layout_constraintBottom_toBottomOf="@+id/posting_logo_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/posting_logo_tv" />
+
+        <ImageView
+            android:id="@+id/posting_profile_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/back_profile_profileset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_logo_tv" />
+
+        <TextView
+            android:id="@+id/positing_main_tv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:gravity="left|center"
+            android:paddingLeft="15dp"
+            android:text="어떤 사람을 모을까요?"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            android:onClick="@{()-> vm.contextInput()}"
+            app:layout_constraintBottom_toBottomOf="@+id/posting_profile_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/posting_profile_img"
+            app:layout_constraintTop_toTopOf="@+id/posting_profile_img" />
+
+        <TextView
+            android:id="@+id/posting_groupbuy_tv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nanumsquarelight"
+            android:gravity="center"
+            android:text="공동구매"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:onClick="@{()-> vm.groupBuyOption()}"
+            app:layout_constraintBottom_toTopOf="@+id/posting_bar4_view"
+            app:layout_constraintEnd_toStartOf="@+id/posting_bar2_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_bar1_view" />
+
+        <TextView
+            android:id="@+id/posting_img_tv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nanumsquarelight"
+            android:gravity="center"
+            android:onClick="@{()-> vm.imgSetOption()}"
+            android:text="사진"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/posting_bar4_view"
+            app:layout_constraintEnd_toStartOf="@+id/posting_bar3_view"
+            app:layout_constraintStart_toStartOf="@id/posting_bar2_view"
+            app:layout_constraintTop_toBottomOf="@+id/posting_bar1_view" />
+
+        <TextView
+            android:id="@+id/posting_netflix_tv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nanumsquarelight"
+            android:gravity="center"
+            android:text="넷플릭스"
+            android:onClick="@{()-> vm.netflixOption()}"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/posting_bar4_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/posting_bar3_view"
+            app:layout_constraintTop_toBottomOf="@+id/posting_bar1_view" />
+
+        <View
+            android:id="@+id/posting_bar1_view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_profile_img" />
+
+        <View
+            android:id="@+id/posting_bar2_view"
+            android:layout_width="0.5dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toStartOf="@+id/posting_bar3_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_bar1_view" />
+
+        <View
+            android:id="@+id/posting_bar3_view"
+            android:layout_width="0.5dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/posting_bar2_view"
+            app:layout_constraintTop_toBottomOf="@+id/posting_bar1_view" />
+
+        <View
+            android:id="@+id/posting_bar4_view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorGrayLight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_bar2_view" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/posting_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_bar4_view"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_posting" />
+
+        <include
+            layout="@layout/item_posting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/posting_list_rv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

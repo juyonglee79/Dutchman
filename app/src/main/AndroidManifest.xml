@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.dutchman">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.signin.SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.signinemail.SignInEmailActivity" />
+        <activity android:name=".ui.activity.signup.SignUpActivity" />
+        <activity android:name=".ui.activity.signupemail.SignUpEmailActivity" />
+        <activity android:name=".ui.activity.appintro.AppIntroActivity" />
+        <activity android:name=".ui.activity.alertset.AlertSetActivity" />
+        <activity android:name=".ui.activity.profileset.ProfileSetActivity" />
+        <activity android:name=".ui.activity.main.MainActivity" />
+        <activity android:name=".ui.activity.notice.LocationServiceTermsActivity" />
+        <activity android:name=".ui.activity.notice.ServiceTermsActivity" />
+        <activity android:name=".ui.activity.notice.PrivatePolicyActivity" />
+        <activity android:name=".ui.activity.setting.SettingActivity"/>
+        <activity android:name="com.android.dutchman.ui.activity.setting.profilechange.ProfileChangeActivity"/>
+        <activity android:name="com.android.dutchman.ui.activity.setting.emailcertification.EmailCertificationActivity"/>
+        <activity android:name=".ui.activity.setting.pwchange.PwChangeActivity"/>
+        <activity android:name=".ui.activity.setting.invitecode.InviteCodeActivity"/>
+        <activity android:name=".ui.activity.setting.opensource.OpenSourceActivity"/>
+    </application>
+
+    
+</manifest>

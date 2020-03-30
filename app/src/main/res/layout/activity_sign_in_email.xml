@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.signinemail.SignInEmailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/signinemail_back_btn"
+            android:layout_width="22dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="@{()-> vm.goBack()}"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/signinemail_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/nanumsquarebold"
+            android:text="이메일로 로그인"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signinemail_back_btn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/signinemail_id_et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:hint="아이디"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:text="@={vm.signupId}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signinemail_title_tv"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/signinemail_pw_et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:hint="비밀번호"
+            android:text="@={vm.signupPw}"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signinemail_id_et"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/signinemail_signin_btn"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signinemail_pw_et"
+            app:layout_constraintVertical_bias="0.0"
+            android:clickable="@{vm.btnColorSet}"
+            android:background="@{vm.btnColorSet == false ? @drawable/back_btn_unclicked : @drawable/back_btn_clicked}"
+            android:onClick="@{()-> vm.doSignInEmail()}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
