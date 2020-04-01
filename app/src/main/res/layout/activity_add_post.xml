@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.addpost.AddPostViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addroom_top_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorGrayLightest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/addroom_back_btn"
+                android:layout_width="16dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="8dp"
+                android:onClick="@{()-> vm.doCancel()}"
+                android:src="@drawable/ic_cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/addroom_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시물 만들기"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:fontFamily="@font/nanumsquareregular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/addroom_post_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="게시"
+                android:fontFamily="@font/nanumsquareregular"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="@{vm.btnColorSet}"
+                android:textColor="@{vm.btnColorSet == false ? @color/colorGray : @color/colorPrimary}"
+                android:onClick="@{()-> vm.doPost()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/addroom_profile_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/back_profile_profileset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addroom_top_view"/>
+
+        <TextView
+            android:id="@+id/addroom_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/addroom_profile_img"
+            app:layout_constraintTop_toTopOf="@+id/addroom_profile_img"
+            tools:text="이주용" />
+
+        <TextView
+            android:id="@+id/addroom_limit_tv"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/back_time_show"
+            android:fontFamily="@font/nanumsquarelight"
+            android:gravity="center"
+            android:text="@={vm.postLimit}"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/addroom_profile_img"
+            app:layout_constraintTop_toBottomOf="@+id/addroom_name_tv"
+            tools:text="전체공개"
+            android:onClick="@{() -> vm.setLimit()}"/>
+
+
+        <ImageView
+            android:id="@+id/addroom_limit_img"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arrow_down"
+            app:layout_constraintBottom_toBottomOf="@+id/addroom_limit_tv"
+            app:layout_constraintEnd_toEndOf="@+id/addroom_limit_tv"
+            app:layout_constraintTop_toTopOf="@+id/addroom_limit_tv" />
+
+        <EditText
+            android:id="@+id/addroom_context_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/back_transparent_view"
+            android:fontFamily="@font/nanumsquareregular"
+            android:gravity="start"
+            android:text="@={vm.postContext}"
+            android:hint="어떤 사람을 모으시나요?"
+            android:lineSpacingExtra="3dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addroom_profile_img" />
+
+        <TextView
+            android:id="@+id/addroom_people_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/back_transparent_view"
+            android:fontFamily="@font/nanumsquareregular"
+            android:text="인원수"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addroom_context_et" />
+
+        <EditText
+            android:inputType="number"
+            android:id="@+id/addroom_people_count_et"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/back_transparent_view"
+            android:fontFamily="@font/nanumsquareregular"
+            android:hint="N"
+            android:text="@={vm.postPeopleCount}"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addroom_people_count_tv" />
+
+        <TextView
+            android:id="@+id/addroom_count_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="1dp"
+            android:text="명"
+            android:fontFamily="@font/nanumsquareregular"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/addroom_people_count_et"
+            app:layout_constraintStart_toEndOf="@+id/addroom_people_count_et"
+            app:layout_constraintTop_toTopOf="@+id/addroom_people_count_et" />
+
+        <CheckBox
+            android:id="@+id/addroom_nolimit_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="제한없음"
+            android:fontFamily="@font/nanumsquareregular"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/addroom_count_unit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addroom_count_unit"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addroom_bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/back_layout_half_round"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addroom_people_count_et">
+
+            <View
+                android:id="@+id/addroom_view_controller_view"
+                android:layout_width="50dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/back_controller_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addroom_picture_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addroom_view_controller_view"
+                android:onClick="@{()->vm.setImage()}">
+
+                <ImageView
+                    android:id="@+id/addroom_picture_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_picture"
+                    android:background="@drawable/back_post_item_yellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingRight="9dp"
+                    android:paddingTop="9dp"
+                    android:paddingBottom="9dp"
+                    android:paddingLeft="9dp"/>
+
+                <TextView
+                    android:id="@+id/addroom_picture_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:text="사진 및 동영상"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/addroom_picture_img"
+                    app:layout_constraintStart_toEndOf="@+id/addroom_picture_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addroom_netflix_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{()->vm.setNetflixForm()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addroom_groupbuy_item">
+
+                <ImageView
+                    android:id="@+id/addroom_netflix_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/back_post_item_black"
+                    android:paddingLeft="9dp"
+                    android:paddingTop="9dp"
+                    android:paddingRight="9dp"
+                    android:paddingBottom="9dp"
+                    android:src="@drawable/ic_netflix"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/addroom_netflix_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:text="넷플릭스 "
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/addroom_netflix_img"
+                    app:layout_constraintStart_toEndOf="@+id/addroom_netflix_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addroom_groupbuy_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{()-> vm.setGroupBuyForm()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addroom_friend_invite_item">
+
+                <ImageView
+                    android:id="@+id/addroom_groupbuy_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/back_post_item_red"
+                    android:paddingLeft="6dp"
+                    android:paddingTop="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingBottom="6dp"
+                    android:src="@drawable/ic_groupbuy"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/addroom_groupbuy_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:text="공동구매"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/addroom_groupbuy_img"
+                    app:layout_constraintStart_toEndOf="@+id/addroom_groupbuy_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addroom_friend_invite_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{()-> vm.inviteFriend()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addroom_picture_item">
+
+                <ImageView
+                    android:id="@+id/addroom_friend_invite_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/back_post_item_orange"
+                    android:paddingLeft="9dp"
+                    android:paddingTop="9dp"
+                    android:paddingRight="9dp"
+                    android:paddingBottom="9dp"
+                    android:src="@drawable/ic_friend_invite"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/addroom_friend_invite_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:text="친구초대"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/addroom_friend_invite_img"
+                    app:layout_constraintStart_toEndOf="@+id/addroom_friend_invite_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

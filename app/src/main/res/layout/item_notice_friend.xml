@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.notice.NoticeViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_notice_friend_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_notice_friend_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/item_notice_friend_profile_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/back_profile_profileset"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:onClick="@{()-> vm.goSomeoneProfile()}"/>
+
+            <TextView
+                android:id="@+id/item_notice_friend_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/item_notice_friend_profile_img"
+                app:layout_constraintTop_toTopOf="@+id/item_notice_friend_profile_img"
+                tools:text="이주용"
+                android:onClick="@{()-> vm.goSomeoneProfile()}"/>
+
+            <TextView
+                android:id="@+id/item_notice_friend_okay_btn"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/back_primary_btn"
+                android:fontFamily="@font/nanumsquareregular"
+                android:gravity="center"
+                android:text="확인"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_notice_friend_profile_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_notice_friend_name_tv"
+                android:onClick="@{()-> vm.addToFriend()}"/>
+
+            <TextView
+                android:id="@+id/item_notice_friend_reject_btn"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/back_gray_btn"
+                android:fontFamily="@font/nanumsquareregular"
+                android:gravity="center"
+                android:text="삭제"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/item_notice_friend_okay_btn"
+                app:layout_constraintTop_toBottomOf="@+id/item_notice_friend_name_tv"
+                android:onClick="@{()-> vm.rejectBeingFriend()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
