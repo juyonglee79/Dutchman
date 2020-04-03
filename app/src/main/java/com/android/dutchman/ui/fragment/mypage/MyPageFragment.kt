@@ -14,13 +14,11 @@ import androidx.viewpager.widget.PagerAdapter
 import com.android.dutchman.R
 import com.android.dutchman.databinding.FragmentMyPageBinding
 import com.android.dutchman.domain.repository.mypage.MyPageRepository
-import com.android.dutchman.presentation.model.MyRoomPagerModel
 import com.android.dutchman.presentation.viewmodel.mypage.MyPageViewModel
 import com.android.dutchman.presentation.viewmodel.mypage.MyPageViewModelFactory
 import com.android.dutchman.ui.activity.setting.SettingActivity
 import com.android.dutchman.util.DataBindingFragment
 import io.reactivex.disposables.CompositeDisposable
-import kotlinx.android.synthetic.main.fragment_my_room.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -36,8 +34,6 @@ class MyPageFragment: DataBindingFragment<FragmentMyPageBinding>(), MyPageReposi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val viewModel = ViewModelProviders.of(this, factory).get(MyPageViewModel::class.java)
-
-        binding.vm = viewModel
 
         viewModel.seeMyRoomLiveEvent.observe(this, Observer {  })
         viewModel.seeMyPostingLiveEvent.observe(this, Observer {  })

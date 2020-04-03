@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+<!--    <data>-->
 
-        <variable
-            name="myRoomPagerModel"
-            type="com.android.dutchman.presentation.model.MyRoomPagerModel" />
+<!--        <variable-->
+<!--            name="myRoomPagerModel"-->
+<!--            type="com.android.dutchman.presentation.model.MyRoomPagerModel" />-->
 
-        <variable
-            name="vm"
-            type="com.android.dutchman.presentation.viewmodel.myroom.MyRoomViewModel" />
-    </data>
+<!--        <variable-->
+<!--            name="vm"-->
+<!--            type="com.android.dutchman.presentation.viewmodel.myroom.MyRoomViewModel" />-->
+<!--    </data>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -65,10 +65,12 @@
                     android:layout_height="25dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
-                    android:src="@{vm.selectedIndex == index ? @drawable/ic_star_unclicked : @drawable/ic_star_clicked}"
+
                     app:layout_constraintBottom_toBottomOf="@+id/item_posting_profile_img"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/item_myroom_profile_img" />
+//    android:src="@{vm.selectedIndex == index ? @drawable/ic_star_unclicked : @drawable/ic_star_clicked}"
+
 
                 <TextView
                     android:id="@+id/item_myroom_context_tv"

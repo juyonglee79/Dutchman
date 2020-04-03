@@ -10,7 +10,12 @@
     <color name="colorGray">#bcbcbc</color>
     <color name="colorGrayDark">#808080</color>
     <color name="colorGrayLight">#e2e2e2</color>
+    <color name="colorGrayLightest">#f5f5f5</color>
     <color name="colorPrimary2">#cdeef3</color>
     <color name="colorPrimaryDark2">#96dfd8</color>
     <color name="colorBlue">#2c54a3</color>
+    <color name="colorYellow">#fff275</color>
+    <color name="colorRed">#fc3c38</color>
+    <color name="colorOrange">#ff8c42</color>
+    <color name="colorPurple">#a23e48</color>
 </resources>
