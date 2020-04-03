@@ -18,7 +18,7 @@ import dsm.android.v3.presentation.di.scope.FragmentScope
 import javax.inject.Inject
 
 @FragmentScope
-class JoinDialogFragment: DataBindingDialogFragment<DialogDemandConfirmBinding>(), DemandConfirmRepository {
+class DemandConfirmDialogFragment: DataBindingDialogFragment<DialogDemandConfirmBinding>(), DemandConfirmRepository {
 
     override val layoutId: Int
         get() = R.layout.dialog_demand_confirm
