@@ -34,7 +34,7 @@
                 android:fontFamily="@font/nanumsquarebold"
                 android:lineSpacingExtra="2sp"
                 android:text="내 친구"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@{vm.btnColorSet == true ? @color/colorGray : @color/colorPrimary}"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/invite_friend_view2"
                 app:layout_constraintEnd_toStartOf="@+id/invite_friend_view1"
@@ -42,6 +42,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:onClick="@{()-> vm.showMyFriends()}"/>
+
+            <TextView
+                android:id="@+id/invite_friend_add_friend_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/nanumsquarebold"
+                android:lineSpacingExtra="2sp"
+                android:text="초대하기"
+                android:textColor="@{vm.btnColorSet == false ? @color/colorGray : @color/colorPrimary}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/invite_friend_view2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/invite_friend_view1"
+                app:layout_constraintTop_toTopOf="parent"
+                android:onClick="@{()-> vm.inviteFriends()}"/>
 
             <View
                 android:id="@+id/invite_friend_view1"
@@ -52,22 +68,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/invite_friend_add_friend_btn"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:fontFamily="@font/nanumsquarebold"
-                android:lineSpacingExtra="2sp"
-                android:text="초대하기"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/invite_friend_view2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/invite_friend_view1"
-                app:layout_constraintTop_toTopOf="parent"
-                android:onClick="@{()-> vm.inviteFriends()}"/>
 
             <View
                 android:id="@+id/invite_friend_view2"
