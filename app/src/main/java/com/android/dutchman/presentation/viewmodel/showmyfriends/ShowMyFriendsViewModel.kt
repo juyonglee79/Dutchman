@@ -14,12 +14,13 @@ class ShowMyFriendsViewModel(val  showMyFriendsRepository: ShowMyFriendsReposito
 
     }
 
+    val checkFriendsToInviteLiveEvent = SingleLiveEvent<Any>()
     val inviteFriendsLiveEvent = SingleLiveEvent<Any>()
 
-
-
-
-
+    fun checkFriendsToInvite() {
+        //item의 뷰를 visible로 바꾸어야함
+        checkFriendsToInviteLiveEvent.call()
+    }
     fun inviteFriends() = inviteFriendsLiveEvent.call()
 
 }
