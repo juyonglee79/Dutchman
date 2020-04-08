@@ -2,6 +2,7 @@ package com.android.dutchman.ui.activity.addpost
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.android.dutchman.R
@@ -10,6 +11,7 @@ import com.android.dutchman.domain.repository.addpost.AddPostRepository
 import com.android.dutchman.presentation.viewmodel.addpost.AddPostViewModel
 import com.android.dutchman.presentation.viewmodel.addpost.AddPostViewModelFactory
 import com.android.dutchman.util.DataBindingActivity
+import kotlinx.android.synthetic.main.activity_add_post.*
 
 class AddPostActivity : DataBindingActivity<ActivityAddPostBinding>(),
     AddPostRepository {
@@ -38,6 +40,9 @@ class AddPostActivity : DataBindingActivity<ActivityAddPostBinding>(),
         viewModel.setImageLiveEvent.observe(this, Observer {  })
         viewModel.inviteFriendLiveEvent.observe(this, Observer {  })
 
+        AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up).let {
+            addroom_bottom_layout.startAnimation(it)
+        }
     }
 
 }
