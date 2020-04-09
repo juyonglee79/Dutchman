@@ -10,8 +10,11 @@ import com.android.dutchman.databinding.ActivityAddPostBinding
 import com.android.dutchman.domain.repository.addpost.AddPostRepository
 import com.android.dutchman.presentation.viewmodel.addpost.AddPostViewModel
 import com.android.dutchman.presentation.viewmodel.addpost.AddPostViewModelFactory
+import com.android.dutchman.ui.activity.releaselimitset.ReleaseLimitSetActivity
 import com.android.dutchman.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_add_post.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.startActivity
 
 class AddPostActivity : DataBindingActivity<ActivityAddPostBinding>(),
     AddPostRepository {
@@ -32,13 +35,19 @@ class AddPostActivity : DataBindingActivity<ActivityAddPostBinding>(),
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
+        viewModel.postLimit.value =
+            if (intent.hasExtra("limitSet")) intent.getStringExtra("limitSet") else "전체 공개"
+
         viewModel.cancelLiveEvent.observe(this, Observer { finish() })
-        viewModel.doPostLiveEvent.observe(this, Observer {  })
-        viewModel.setLimitLiveEvent.observe(this, Observer {  })
-        viewModel.setNetflixFormLiveEvent.observe(this, Observer {  })
-        viewModel.setGroupBuyFormLiveEvent.observe(this, Observer {  })
-        viewModel.setImageLiveEvent.observe(this, Observer {  })
-        viewModel.inviteFriendLiveEvent.observe(this, Observer {  })
+        viewModel.doPostLiveEvent.observe(this, Observer { })
+        viewModel.setLimitLiveEvent.observe(this, Observer {
+            startActivity<ReleaseLimitSetActivity>("limitSet" to viewModel.postLimit.value)
+            finish()
+        })
+        viewModel.setNetflixFormLiveEvent.observe(this, Observer { })
+        viewModel.setGroupBuyFormLiveEvent.observe(this, Observer { })
+        viewModel.setImageLiveEvent.observe(this, Observer { })
+        viewModel.inviteFriendLiveEvent.observe(this, Observer { })
 
         AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up).let {
             addroom_bottom_layout.startAnimation(it)

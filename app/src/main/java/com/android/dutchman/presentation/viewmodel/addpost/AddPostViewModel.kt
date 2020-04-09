@@ -23,7 +23,7 @@ class AddPostViewModel(val addPostRepository: AddPostRepository) : ViewModel() {
 
     val btnColorSet = MediatorLiveData<Boolean>().apply {
         addSource(postContext) { this.value = !postContext.isValueBlank() && !postPeopleCount.isValueBlank() }
-        addSource(postPeopleCount) { this.value = !postContext.isValueBlank() && !postPeopleCount.isValueBlank()}
+        addSource(postPeopleCount) { this.value = !postContext.isValueBlank() && !postPeopleCount.isValueBlank() }
     }
 
 
