@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DUTCHMAN</string>
+    <string name="limit_all">전체 공개</string>
+    <string name="limit_friends">친구만</string>
+    <string name="limit_me">나만 보기</string>
+
+
 </resources>
