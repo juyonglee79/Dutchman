@@ -81,7 +81,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/logout_dialog_logout_tv"
+                android:id="@+id/posting_join_dialog_join_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

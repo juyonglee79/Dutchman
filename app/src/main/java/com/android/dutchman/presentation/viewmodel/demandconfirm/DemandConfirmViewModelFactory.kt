@@ -2,7 +2,6 @@ package com.android.dutchman.presentation.viewmodel.demandconfirm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.android.dutchman.domain.repository.demandconfirm.DemandConfirmRepository
 
 class DemandConfirmViewModelFactory(val demandConfirmRepository: DemandConfirmRepository) : ViewModelProvider.Factory {

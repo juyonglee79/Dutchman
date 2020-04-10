@@ -33,6 +33,8 @@
         <activity android:name=".ui.activity.setting.invitecode.InviteCodeActivity"/>
         <activity android:name=".ui.activity.setting.opensource.OpenSourceActivity"/>
         <activity android:name=".ui.activity.addpost.AddPostActivity"/>
+        <activity android:name=".ui.activity.profileimageset.ProfileImageSetActivity"/>
+        <activity android:name=".ui.activity.releaselimitset.ReleaseLimitSetActivity"/>
     </application>
 
     
