@@ -48,6 +48,9 @@ class AddPostActivity : DataBindingActivity<ActivityAddPostBinding>(),
         viewModel.setGroupBuyFormLiveEvent.observe(this, Observer { })
         viewModel.setImageLiveEvent.observe(this, Observer { })
         viewModel.inviteFriendLiveEvent.observe(this, Observer { })
+        viewModel.checkCheckBoxIsCheckedLiveEvent.observe(this, Observer {
+            if(addroom_nolimit_checkbox.isChecked) addroom_people_count_et.setText("N") else addroom_people_count_et.setText("")
+        })
 
         AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up).let {
             addroom_bottom_layout.startAnimation(it)

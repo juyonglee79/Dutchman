@@ -207,6 +207,7 @@
             android:fontFamily="@font/nanumsquareregular"
             android:checked="@={vm.noLimitCheck}"
             android:textSize="14sp"
+            android:onClick="@{()-> vm.checkCheckBoxIsChecked()}"
             app:layout_constraintBottom_toBottomOf="@+id/addroom_count_unit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/addroom_count_unit"/>

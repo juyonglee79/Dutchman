@@ -42,7 +42,11 @@ class ReleaseLimitSetActivity : DataBindingActivity<ActivityReleaseLimitSetBindi
             "나만 보기" -> viewModel.selectedIndex.value = 3
         }
 
-        viewModel.cancelLiveEvent.observe(this, Observer { finish() })
+        viewModel.cancelLiveEvent.observe(this, Observer {
+            //수정 좀 더 효율적으로 하기(이미 입력했던 내용이 변경될 수도 있으니까)
+            startActivity<AddPostActivity>()
+            finish()
+        })
         viewModel.setReleaseLimitLiveEvent.observe(this, Observer {
             //TODO 나중에 수정하기
             startActivity<AddPostActivity>("limitSet" to viewModel.selectedLimit.value)
