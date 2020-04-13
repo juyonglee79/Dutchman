@@ -13,6 +13,7 @@ import com.android.dutchman.presentation.viewmodel.posting.PostingViewModel
 import com.android.dutchman.presentation.viewmodel.posting.PostingViewModelFactory
 import com.android.dutchman.ui.activity.addpost.AddPostActivity
 import com.android.dutchman.ui.activity.releaselimitset.ReleaseLimitSetActivity
+import com.android.dutchman.ui.activity.room.RoomActivity
 import com.android.dutchman.ui.dialogfragment.invitefriend.InviteFriendDialogFragment
 import com.android.dutchman.ui.dialogfragment.join.JoinDialogFragment
 import com.android.dutchman.util.DataBindingFragment
@@ -38,7 +39,7 @@ class PostingFragment : DataBindingFragment<FragmentPostingBinding>(), PostingRe
 
         viewModel.searchSomethingLiveEvent.observe(this, Observer { })
         viewModel.contextInputLiveEvent.observe(this, Observer { startActivity<AddPostActivity>()})
-        viewModel.groupBuyOptionLiveEvent.observe(this, Observer { inviteFriendDialogFragment.show(fm, "inviteFriend") })
+        viewModel.groupBuyOptionLiveEvent.observe(this, Observer { startActivity<RoomActivity>() })
         viewModel.imgSetOptionLiveEvent.observe(this, Observer {  })
         viewModel.netflixOptionLiveEvent.observe(this, Observer {  })
         viewModel.someoneProfileClickLiveEvent.observe(this, Observer {  })
