@@ -35,6 +35,7 @@
         <activity android:name=".ui.activity.addpost.AddPostActivity"/>
         <activity android:name=".ui.activity.profileimageset.ProfileImageSetActivity"/>
         <activity android:name=".ui.activity.releaselimitset.ReleaseLimitSetActivity"/>
+        <activity android:name=".ui.activity.room.RoomActivity"/>
     </application>
 
     
