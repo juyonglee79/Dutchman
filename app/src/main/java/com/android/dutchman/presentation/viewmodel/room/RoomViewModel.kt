@@ -7,7 +7,8 @@ import com.android.dutchman.util.SingleLiveEvent
 
 class RoomViewModel(val roomRepository: RoomRepository) : ViewModel() {
 
-    val btnColorSet = MutableLiveData<Boolean>()
+    val paymentBtnColorSet = MutableLiveData<Boolean>()
+    val chatBtnColorSet = MutableLiveData<Boolean>()
 
     val showSettingLiveEvent = SingleLiveEvent<Any>()
     val showChatLiveEvent = SingleLiveEvent<Any>()
@@ -15,12 +16,14 @@ class RoomViewModel(val roomRepository: RoomRepository) : ViewModel() {
 
     fun showSetting() = showSettingLiveEvent.call()
     fun showChat() {
-        btnColorSet.value = false
+        chatBtnColorSet.value = false
+        paymentBtnColorSet.value = true
         showChatLiveEvent.call()
     }
 
     fun showPayment() {
-        btnColorSet.value = true
+        chatBtnColorSet.value = true
+        paymentBtnColorSet.value = false
         showPaymentLiveEvent.call()
     }
 
