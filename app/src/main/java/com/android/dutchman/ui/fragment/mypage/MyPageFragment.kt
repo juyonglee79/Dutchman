@@ -28,6 +28,7 @@ class MyPageFragment: DataBindingFragment<FragmentMyPageBinding>(), MyPageReposi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val viewModel = ViewModelProviders.of(activity!!, factory).get(MyPageViewModel::class.java)
+        binding.vm = viewModel
 
         viewModel.seeMyRoomLiveEvent.observe(this, Observer {  })
         viewModel.seeMyPostingLiveEvent.observe(this, Observer {  })

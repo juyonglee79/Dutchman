@@ -39,21 +39,25 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         when (item.itemId) {
             R.id.navigation_posting -> {
+                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right)
                 transaction.replace(R.id.main_container, PostingFragment())
                 transaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_myroom -> {
+                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right)
                 transaction.replace(R.id.main_container, MyRoomFragment())
                 transaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_alert -> {
+                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right)
                 transaction.replace(R.id.main_container, NoticeFragment())
                 transaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mypage -> {
+                transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 transaction.replace(R.id.main_container, MyPageFragment())
                 transaction.commit()
                 return@OnNavigationItemSelectedListener true
