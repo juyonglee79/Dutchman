@@ -34,8 +34,12 @@ class RoomActivity : DataBindingActivity<ActivityRoomBinding>(), RoomRepository{
         baseSet(viewModel)
 
         viewModel.showSettingLiveEvent.observe(this, Observer { })
-        viewModel.showChatLiveEvent.observe(this, Observer { supportFragmentManager.beginTransaction().replace(R.id.room_main_container, ChatFragment()).commit() })
-        viewModel.showPaymentLiveEvent.observe(this, Observer { supportFragmentManager.beginTransaction().replace(R.id.room_main_container, PaymentFragment()).commit() })
+        viewModel.showChatLiveEvent.observe(this, Observer {
+            supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right)
+                .replace(R.id.room_main_container, ChatFragment()).commit() })
+        viewModel.showPaymentLiveEvent.observe(this, Observer {
+            supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
+                .replace(R.id.room_main_container, PaymentFragment()).commit() })
 
     }
 
