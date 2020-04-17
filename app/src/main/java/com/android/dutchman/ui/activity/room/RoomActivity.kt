@@ -40,7 +40,6 @@ class RoomActivity : DataBindingActivity<ActivityRoomBinding>(), RoomRepository{
         viewModel.showPaymentLiveEvent.observe(this, Observer {
             supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 .replace(R.id.room_main_container, PaymentFragment()).commit() })
-
     }
 
     private fun baseSet(viewModel: RoomViewModel){
