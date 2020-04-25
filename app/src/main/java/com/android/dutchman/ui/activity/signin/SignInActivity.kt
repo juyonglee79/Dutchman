@@ -27,8 +27,9 @@ class SignInActivity : AppCompatActivity() {
 
     fun goSignUp(v : View) = startActivity(intentFor<SignUpActivity>().addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
 
-    //TODO 앱 인트로 메인에서 인트로로 인텐트 고치기
-    fun goAppIntro(v : View) = startActivity<MainActivity>()
+    fun goAppIntro(v : View){
+
+    }
     fun goSignUpEmail(v : View) {
         startActivity<SignUpEmailActivity>()
         overridePendingTransition(R.anim.slide_left, R.anim.slide_right)
