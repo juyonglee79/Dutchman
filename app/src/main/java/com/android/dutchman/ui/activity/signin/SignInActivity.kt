@@ -17,8 +17,6 @@ import org.jetbrains.anko.startActivity
 
 class SignInActivity : AppCompatActivity() {
 
-    private val inviteFriendDialogFragment : InviteFriendDialogFragment by lazy{ InviteFriendDialogFragment() }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
