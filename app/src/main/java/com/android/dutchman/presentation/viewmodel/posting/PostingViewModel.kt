@@ -1,6 +1,7 @@
 package com.android.dutchman.presentation.viewmodel.posting
 
 import android.app.Application
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +12,7 @@ import com.android.dutchman.util.SingleLiveEvent
 
 class PostingViewModel(val postingRepository: PostingRepository) : ViewModel(), LifecycleCallback {
 
-    var selectedIndex = MutableLiveData<Int?>()
+    var scrabStatus : Boolean? = null
 
     val searchSomethingLiveEvent =  SingleLiveEvent<Any>()
     val contextInputLiveEvent = SingleLiveEvent<Any>()
@@ -30,6 +31,9 @@ class PostingViewModel(val postingRepository: PostingRepository) : ViewModel(), 
     fun goSomeoneProfile() = someoneProfileClickLiveEvent.call()
     fun participatePosting() = participatePostingLiveEvent.call()
     fun sharePosting() = sharePostingLiveEvent.call()
+    fun setScrabStatus(){
+        scrabStatus = scrabStatus != true
+    }
 
 
     override fun apply(event: Lifecycle.Event) {

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.room.RoomViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/room_top_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/room_setting_btn"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:onClick="@{()-> vm.showSetting()}"
+            android:src="@drawable/ic_setting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/invite_friend_show_myfriend_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nanumsquarebold"
+            android:gravity="center"
+            android:lineSpacingExtra="2sp"
+            android:text="채팅"
+            android:clickable="@{vm.chatBtnColorSet}"
+            android:textColor="@{vm.chatBtnColorSet == true ? @color/colorGray : @color/colorPrimary}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/room_view2"
+            app:layout_constraintEnd_toStartOf="@+id/room_view1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room_top_view"
+            android:onClick="@{()-> vm.showChat()}"/>
+
+        <TextView
+            android:id="@+id/invite_friend_add_friend_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nanumsquarebold"
+            android:gravity="center"
+            android:lineSpacingExtra="2sp"
+            android:text="결제 내역"
+            android:clickable="@{vm.paymentBtnColorSet}"
+            android:textColor="@{vm.paymentBtnColorSet == true ? @color/colorGray : @color/colorPrimary}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/room_view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/room_view1"
+            app:layout_constraintTop_toBottomOf="@+id/room_top_view"
+            android:onClick="@{()-> vm.showPayment()}"/>
+
+        <View
+            android:id="@+id/room_view1"
+            android:layout_width="1dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorGrayLight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room_top_view" />
+
+        <View
+            android:id="@+id/room_view2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorGrayLight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/room_view1" />
+
+        <FrameLayout
+            android:id="@+id/room_main_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room_view2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="index"
+            type="Integer" />
+
+        <variable
+            name="vm"
+            type="com.android.dutchman.presentation.viewmodel.releaselimitset.ReleaseLimitSetViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/release_limit_top_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorGrayLightest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/release_limit_back_btn"
+                android:layout_width="16dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="8dp"
+                android:onClick="@{()-> vm.doCancel()}"
+                android:src="@drawable/ic_cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/release_limit_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="공개 범위 선택"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:fontFamily="@font/nanumsquarebold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/release_limit_set_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="완료"
+                android:fontFamily="@font/nanumsquareregular"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/colorPrimary"
+                android:onClick="@{()-> vm.setReleaseLimit()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/release_limit_sub_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:text="게시물 공개 대상"
+            android:fontFamily="@font/nanumsquarebold"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_top_view" />
+
+        <TextView
+            android:id="@+id/release_limit_context_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:text="게시물이 뉴스피드, 프로필 및 검색 결과에 표시됩니다."
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_sub_title_tv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/release_limit_item_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_context_tv"
+            android:onClick="@{()-> vm.setWhichIsChecked(1)}">
+
+            <ImageView
+                android:id="@+id/item_all_check_status_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@{vm.selectedIndex == 1 ? @drawable/ic_check_round : @drawable/back_release_check}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/item_all_check_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="3dp"
+                android:src="@drawable/ic_release_all"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_all_check_status_view"
+                app:layout_constraintTop_toTopOf="@+id/item_all_check_status_view" />
+
+            <TextView
+                android:id="@+id/item_all_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:text="전체 공개"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/item_all_check_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_all_context_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:text="DUTCHMAN 내외의 모든사람"
+                android:fontFamily="@font/nanumsquareregular"
+                android:textColor="@color/colorReleaseSet"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/item_all_check_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_all_title_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/release_limit_view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_item_all" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/release_limit_item_friends"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_view1"
+            android:onClick="@{()-> vm.setWhichIsChecked(2)}">
+
+            <ImageView
+                android:id="@+id/item_friends_check_status_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@{vm.selectedIndex == 2 ? @drawable/ic_check_round : @drawable/back_release_check}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/item_friends_check_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="3dp"
+                android:src="@drawable/ic_release_friends"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_friends_check_status_view"
+                app:layout_constraintTop_toTopOf="@+id/item_friends_check_status_view" />
+
+            <TextView
+                android:id="@+id/item_friends_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:text="친구만"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/item_friends_check_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_friends_context_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:text="회원님의 DUTCHMAN 친구"
+                android:fontFamily="@font/nanumsquareregular"
+                android:textColor="@color/colorReleaseSet"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/item_friends_check_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_friends_title_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/release_limit_view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_item_friends" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/release_limit_item_me"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_view2"
+            android:onClick="@{()-> vm.setWhichIsChecked(3)}">
+
+            <ImageView
+                android:id="@+id/item_me_check_status_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@{vm.selectedIndex == 3 ? @drawable/ic_check_round : @drawable/back_release_check}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/item_me_check_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="3dp"
+                android:src="@drawable/ic_release_me"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_me_check_status_view"
+                app:layout_constraintTop_toTopOf="@+id/item_me_check_status_view" />
+
+            <TextView
+                android:id="@+id/item_me_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:text="나만 보기"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/item_me_check_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_me_context_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:text="나만 보기"
+                android:fontFamily="@font/nanumsquareregular"
+                android:textColor="@color/colorReleaseSet"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/item_me_check_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_me_title_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/release_limit_view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            app:layout_constraintTop_toBottomOf="@+id/release_limit_item_me" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

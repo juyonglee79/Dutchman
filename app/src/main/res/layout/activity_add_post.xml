@@ -44,7 +44,7 @@
                 android:text="게시물 만들기"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
-                android:fontFamily="@font/nanumsquareregular"
+                android:fontFamily="@font/nanumsquarebold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +88,7 @@
             android:fontFamily="@font/nanumsquareregular"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
+            android:text="이주용"
             app:layout_constraintStart_toEndOf="@+id/addroom_profile_img"
             app:layout_constraintTop_toTopOf="@+id/addroom_profile_img"
             tools:text="이주용" />
@@ -160,7 +161,6 @@
             app:layout_constraintTop_toBottomOf="@+id/addroom_context_et" />
 
         <EditText
-            android:inputType="number"
             android:id="@+id/addroom_people_count_et"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -170,8 +170,13 @@
             android:background="@drawable/back_transparent_view"
             android:fontFamily="@font/nanumsquareregular"
             android:hint="N"
+            android:inputType="number"
             android:text="@={vm.postPeopleCount}"
             android:textSize="14sp"
+            android:maxLength="3"
+            android:enabled="@{ !vm.noLimitCheck }"
+            app:layout_constraintEnd_toStartOf="@+id/addroom_nolimit_checkbox"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addroom_people_count_tv" />
 
@@ -182,11 +187,13 @@
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_marginBottom="1dp"
-            android:text="명"
             android:fontFamily="@font/nanumsquareregular"
+            android:text="명"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/addroom_people_count_et"
+            app:layout_constraintEnd_toStartOf="@+id/addroom_nolimit_checkbox"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/addroom_people_count_et"
             app:layout_constraintTop_toTopOf="@+id/addroom_people_count_et" />
 
@@ -198,12 +205,15 @@
             android:layout_marginRight="16dp"
             android:text="제한없음"
             android:fontFamily="@font/nanumsquareregular"
+            android:checked="@={vm.noLimitCheck}"
             android:textSize="14sp"
+            android:onClick="@{()-> vm.checkCheckBoxIsChecked()}"
             app:layout_constraintBottom_toBottomOf="@+id/addroom_count_unit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/addroom_count_unit"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/addroom_bottom_view"
+            android:id="@+id/addroom_bottom_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="24dp"

@@ -20,10 +20,11 @@ class AddPostViewModel(val addPostRepository: AddPostRepository) : ViewModel() {
     val setNetflixFormLiveEvent = SingleLiveEvent<Any>()
     val setGroupBuyFormLiveEvent = SingleLiveEvent<Any>()
     val inviteFriendLiveEvent = SingleLiveEvent<Any>()
+    val checkCheckBoxIsCheckedLiveEvent = SingleLiveEvent<Any>()
 
     val btnColorSet = MediatorLiveData<Boolean>().apply {
         addSource(postContext) { this.value = !postContext.isValueBlank() && !postPeopleCount.isValueBlank() }
-        addSource(postPeopleCount) { this.value = !postContext.isValueBlank() && !postPeopleCount.isValueBlank()}
+        addSource(postPeopleCount) { this.value = !postContext.isValueBlank() && !postPeopleCount.isValueBlank() }
     }
 
 
@@ -34,6 +35,7 @@ class AddPostViewModel(val addPostRepository: AddPostRepository) : ViewModel() {
     fun setNetflixForm() = setNetflixFormLiveEvent.call()
     fun setGroupBuyForm() = setGroupBuyFormLiveEvent.call()
     fun inviteFriend() = inviteFriendLiveEvent.call()
+    fun checkCheckBoxIsChecked() = checkCheckBoxIsCheckedLiveEvent.call()
 
     fun MutableLiveData<String>.isValueBlank() = this.value.isNullOrBlank()
 

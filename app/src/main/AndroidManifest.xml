@@ -27,11 +27,15 @@
         <activity android:name=".ui.activity.notice.ServiceTermsActivity" />
         <activity android:name=".ui.activity.notice.PrivatePolicyActivity" />
         <activity android:name=".ui.activity.setting.SettingActivity"/>
-        <activity android:name="com.android.dutchman.ui.activity.setting.profilechange.ProfileChangeActivity"/>
-        <activity android:name="com.android.dutchman.ui.activity.setting.emailcertification.EmailCertificationActivity"/>
+        <activity android:name=".ui.activity.setting.profilechange.ProfileChangeActivity"/>
+        <activity android:name=".ui.activity.setting.emailcertification.EmailCertificationActivity"/>
         <activity android:name=".ui.activity.setting.pwchange.PwChangeActivity"/>
         <activity android:name=".ui.activity.setting.invitecode.InviteCodeActivity"/>
         <activity android:name=".ui.activity.setting.opensource.OpenSourceActivity"/>
+        <activity android:name=".ui.activity.addpost.AddPostActivity"/>
+        <activity android:name=".ui.activity.profileimageset.ProfileImageSetActivity"/>
+        <activity android:name=".ui.activity.releaselimitset.ReleaseLimitSetActivity"/>
+        <activity android:name=".ui.activity.room.RoomActivity"/>
     </application>
 
     

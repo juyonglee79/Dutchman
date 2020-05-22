@@ -19,8 +19,7 @@ import com.android.dutchman.ui.activity.setting.pwchange.PwChangeActivity
 import com.android.dutchman.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
 
-class SettingActivity : DataBindingActivity<ActivitySettingBinding>(),
-    SettingRepository {
+class SettingActivity : DataBindingActivity<ActivitySettingBinding>(), SettingRepository {
 
     override val layoutId: Int
         get() = R.layout.activity_setting
