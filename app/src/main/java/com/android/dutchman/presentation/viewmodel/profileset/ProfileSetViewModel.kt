@@ -22,7 +22,6 @@ class ProfileSetViewModel (val profileSetRepository: ProfileSetRepository) : Vie
     fun setImage() = setImageLiveEvent.call()
     fun goAlertSet() = goAlertSetLiveEvent.call()
 
-
     fun MutableLiveData<String>.isValueBlank() = this.value.isNullOrBlank()
 
 }
