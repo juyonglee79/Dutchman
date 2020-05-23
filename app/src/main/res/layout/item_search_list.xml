@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="searchedListData"
+            type="com.android.dutchman.presentation.model.SearchedListModel" />
+
         <variable
             name="vm"
             type="com.android.dutchman.presentation.viewmodel.search.SearchViewModel" />
