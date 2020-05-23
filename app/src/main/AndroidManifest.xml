@@ -36,6 +36,7 @@
         <activity android:name=".ui.activity.profileimageset.ProfileImageSetActivity"/>
         <activity android:name=".ui.activity.releaselimitset.ReleaseLimitSetActivity"/>
         <activity android:name=".ui.activity.room.RoomActivity"/>
+        <activity android:name=".ui.activity.search.SearchActivity"/>
     </application>
 
     

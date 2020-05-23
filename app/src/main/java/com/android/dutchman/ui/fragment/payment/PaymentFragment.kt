@@ -31,7 +31,7 @@ class PaymentFragment : DataBindingFragment<FragmentPaymentBinding>(), PaymentRe
         binding.vm = viewModel
 
 //        payment_people_list_rv.layoutManager = LinearLayoutManager(context)
-//        payment_people_list_rv.adapter = PaymentItemAdapter(viewModel)
+        payment_people_list_rv.adapter = PaymentItemAdapter(viewModel)
 
         return rootView
     }
