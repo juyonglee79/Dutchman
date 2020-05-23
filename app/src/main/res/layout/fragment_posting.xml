@@ -42,8 +42,8 @@
 
         <ImageView
             android:id="@+id/posting_search_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/back_search_btn"
             android:onClick="@{()-> vm.searchSomething()}"

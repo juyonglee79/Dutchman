@@ -18,6 +18,7 @@ import com.android.dutchman.ui.activity.addpost.AddPostActivity
 import com.android.dutchman.ui.activity.releaselimitset.ReleaseLimitSetActivity
 import com.android.dutchman.ui.activity.room.RoomActivity
 import com.android.dutchman.ui.activity.search.SearchActivity
+import com.android.dutchman.ui.adapter.PostingAdapter
 import com.android.dutchman.ui.dialogfragment.invitefriend.InviteFriendDialogFragment
 import com.android.dutchman.ui.dialogfragment.join.JoinDialogFragment
 import com.android.dutchman.util.DataBindingFragment
@@ -42,6 +43,8 @@ class PostingFragment : DataBindingFragment<FragmentPostingBinding>(), PostingRe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewModel = ViewModelProviders.of(activity!!, factory).get(PostingViewModel::class.java)
+
+        posting_list_rv.adapter = PostingAdapter(viewModel)
 
         viewModel.searchSomethingLiveEvent.observe(this, Observer { startActivity(
             intentFor<SearchActivity>().addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))})
