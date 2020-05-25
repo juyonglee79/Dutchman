@@ -30,6 +30,5 @@ class PaymentItemAdapter(val viewModel: PaymentViewModel) : RecyclerView.Adapter
             binding.paymentData = item[adapterPosition]
             binding.vm = viewModel
         }
-
     }
 }
