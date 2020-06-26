@@ -7,6 +7,7 @@
 
 ### 사용 기술
 * Kotlin
+* Java
 * Android Jetpack
 * Android Architecture Components's Lifecycle
 * MVVM Pattern
