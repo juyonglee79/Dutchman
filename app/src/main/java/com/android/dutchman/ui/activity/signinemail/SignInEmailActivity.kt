@@ -14,6 +14,7 @@ import com.android.dutchman.ui.activity.profileset.ProfileSetActivity
 import com.android.dutchman.ui.activity.signin.SignInActivity
 import com.android.dutchman.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 class SignInEmailActivity : DataBindingActivity<ActivitySignInEmailBinding>(),
     SignInEmailRepository {
@@ -34,9 +35,12 @@ class SignInEmailActivity : DataBindingActivity<ActivitySignInEmailBinding>(),
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        viewModel.doSignupEmailLiveEvent.observe(this, Observer {
+        viewModel.signupSuccessEmailLiveEvent.observe(this, Observer {
             startActivity<MainActivity>()
             finish()
+        })
+        viewModel.signupFailedEmailLiveEvent.observe(this, Observer {
+            toast("로그인 실패")
         })
         viewModel.goBackLiveEvent.observe(this, Observer { finish() })
 
