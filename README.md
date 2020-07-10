@@ -13,7 +13,7 @@
 * MVVM Pattern
 * DataBinding
 * RxJava
-* Firebase
+* FireBase
 
 ### 성과
 * 하나의 애플리케이션을 기획하고 디자인 및 개발까지 하는 작업이 엄청난 **생각**과 **노력**을 필요로한다는 걸 알게되었습니다.
